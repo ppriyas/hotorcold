@@ -1,0 +1,79 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+		<meta name="robots" content="index, follow">
+		<meta name="keywords" content="guess, game, guessing, numbers, random">
+		<meta name="description" content="Padma's Hot or Cold (aka Huckle Buckle Beanstalk) Guessing Game">
+		<link type="text/css" rel="stylesheet" href="hotorcold-styles.css"/>
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="js/application.js"></script>
+		<!--[if lt IE 9]>
+			<script src="js/html5shiv.js"></script>
+		<![endif]-->
+		<title>Padma's Hot or Cold (aka Huckle Buckle Beanstalk) Guessing Game</title>
+		 <script type="text/javascript">
+		 
+		 function choose_number(myform)
+		 {
+			var a_number=Math.floor((Math.random()* 10)+1);
+			myform.number_choice.value = a_number;
+			
+			console.log("a_number1 is: "+a_number);
+		 }
+		 
+        function hotorcold(myform)
+		{
+         var a_number=myform.number_choice.value;
+		 alert("a_number is: "+a_number);
+          // Get a random number between 1 and 10
+          // Then ask the user to guess the number
+		 var previous_number = myform.previous_number.value;
+		         
+		  var number_choice=eval(myform.enter_number.value);
+          if (number_choice == a_number) {
+		     //alert("Congrats, you correctly guessed the number!");
+             myform.comments.value="Congrats, you correctly guessed the number!";
+			 
+          }
+          if(number_choice < a_number && number_chosen > previous_number)
+             { //alert("Getting hotter");
+			   myform.comments.value="Getting hotter";}
+          else if (number_choice < a_number && number_chosen < previous_number)
+            {  //alert("Getting colder");
+			  myform.comments.value="Getting colder";}
+          else if (number_choice > a_number && number_chosen < previous_number)
+            { //alert("Getting hotter");
+			  myform.comments.value="Getting hotter";}
+          else if (number_choice > a_number && number_chosen > previous_number)
+            { //alert("Getting colder");
+			  myform.comments.value="Getting colder";}
+          else { //alert("Try again.");
+				 myform.comments.value="Try again.";}
+			
+		  previous_number = number_choice;
+		  myform.previous_number.value = previous_number;
+ 
+         		
+		}
+		</script>
+    </head>
+    <body onLoad="choose_number(this.form)">
+				
+			<form name="hotorcold_game" id="hotorcold_game">
+				<p>
+					<label name="comments" id="comments">HotandColdGame</label>
+				</p>
+			  <p>
+				<label for="enter-number">Can you guess the number?</label>
+				<input type="hidden" name="number_choice" id="number_choice"/>
+				<input type="hidden" name="previous_number" id="previous_number"/>
+				<input type="text" name="enter_number" id="enter_number"/>
+				<button type="submit" onClick="hotorcold(this.form)">Ok</button>
+			  </p>
+			</form>
+			
+		
+              
+    </body>
+  </html>
+

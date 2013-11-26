@@ -1,0 +1,44 @@
+/* Resetting browser default styles */
+header, hgroup, nav, section, article, aside, footer, figure, figcaption, details, summary {
+  display: block;
+}
+
+html, body, figure, dt, dd, li, form, fieldset, legend, input, select, textarea, button {
+  padding: 0;
+  margin: 0 auto;
+}
+
+p, ul, ol, dl, table, blockquote {
+  padding: 0;
+  margin: 0 0 1.5em;
+}
+
+input, button, textarea, select, optgroup, option {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+fieldset {
+  border: 0;
+}
+/*<-End of resets*/
+
+body {
+  
+  font-family: 'Times New Roman';
+}
+
+#body {
+  width: 70%;
+  margin:  40px auto 0 auto;
+  
+ 
+}
+
+#hotorcold_game {
+	width: 800px;	
+	height: 600px;
+	margin:  0 auto 0 auto;
+	text-align: center;
+	padding: 285px 0 0 0;
+}

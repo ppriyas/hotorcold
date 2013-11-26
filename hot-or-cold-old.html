@@ -1,0 +1,53 @@
+<html>
+    <head>
+      <meta charset="utf-8">
+		<meta name="robots" content="index, follow">
+		<meta name="keywords" content="guess, game, guessing, numbers, random">
+		<meta name="description" content="Padma's Hot or Cold (aka Huckle Buckle Beanstalk) Guessing Game">
+		<title>Padma's Hot or Cold (aka Huckle Buckle Beanstalk) Guessing Game</title>
+		 <script type="text/javascript">
+        function hotorcold()
+		{
+         var a_number=Math.floor((Math.random()* 100)+1);
+          // Get a random number between 1 and 100
+          // Then ask the user to guess the number
+		 var previous_number = 0;
+		
+         while (true)
+		 {
+		  var number_chosen=eval(prompt("Can you guess the number? ",""));
+          if (number_chosen == a_number) {
+             alert("Congrats, you correctly guessed the number!");
+			 if (confirm("Do you want to start once more?"))
+			 {
+				a_number=Math.floor((Math.random()* 100)+1);
+				previous_number = 0;
+				continue;
+			 }
+			 else
+             	break;   // Break out of the loop
+          }
+          if(number_chosen < a_number && number_chosen > previous_number)
+             {alert("Getting hotter");}
+          else if (number_chosen < a_number && number_chosen < previous_number)
+            {alert("Getting colder");}
+          else if (number_chosen > a_number && number_chosen < previous_number)
+            {alert("Getting hotter");}
+          else if (number_chosen > a_number && number_chosen > previous_number)
+            {alert("Getting colder");}
+          else {alert("Try again.");}
+			
+		  previous_number = number_chosen;
+ 
+         }
+		
+		}
+		</script>
+    </head>
+    <body>
+		<button onclick="hotorcold()">Click here to begin</button>
+        
+      
+    </body>
+  </html>
+
